@@ -3,13 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Tourism</title>
+        <link rel="stylesheet" href="../css/swiper-bundle.min.css">
         <link rel="stylesheet" href="../css/output.css">
     </head>
     <body>
 
         <!-- navbar start -->
-
         <nav class="w-full h-14 bg-white border-b border-style shadow-lg">
             <section class="container h-full flex justify-between items-center">
 
@@ -42,8 +42,8 @@
                     <!-- country start -->
                     <div
                         class="w-10 h-10 rounded-full flex-center cursor-pointer hover:shadow-lg custom-transition">
-                        <img src="../img/Iranian flag.jpg" alt="flag country"
-                            class="w-8 h-8 rounded-full">
+                        <img src="../img/rtl.png" alt="flag country"
+                            class="w-10 h-8 rounded-full">
                     </div>
                     <!-- country end -->
 
@@ -58,8 +58,46 @@
 
             </section>
         </nav>
-
         <!-- navbar end -->
 
+        <!-- main start -->
+        <main class="pt-4">
+            <!-- slider start -->
+            <div class="container">
+                <div
+                    class="swiper slider aspect-video rounded-2xl overflow-hidden mb-4">
+                    <div class="swiper-wrapper">
+                        <a href="#" class="swiper-slide">
+                            <img src="../img/slide1.jpg" alt="slide1"
+                                class="w-full h-full">
+                        </a>
+                        <a href="#" class="swiper-slide">
+                            <img src="../img/slide2.jpg" alt="slide2"
+                                class="w-full h-full">
+                        </a>
+                        <a href="#" class="swiper-slide">
+                            <img src="../img/slide3.jpg" alt="slide3"
+                                class="w-full h-full">
+                        </a>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="#" class="aspect-video rounded-2xl overflow-hidden">
+                        <img src="../img/slide2.jpg" alt="slide2"
+                            class="w-full h-full">
+                    </a>
+                    <a href="#" class="aspect-video rounded-2xl overflow-hidden">
+                        <img src="../img/slide3.jpg" alt="slide3"
+                            class="w-full h-full">
+                    </a>
+                </div>
+            </div>
+            <!-- slider end -->
+        </main>
+        <!-- main end -->
+
     </body>
+    <script src="../js/swiper-bundle.min.js"></script>
+    <script src="../js/main.js"></script>
 </html>
