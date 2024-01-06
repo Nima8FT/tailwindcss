@@ -37,7 +37,7 @@
 
 @layer components{
     .title_color {
-        @apply text-gray-700 dark:text-gray-400;
+        @apply text-gray-700 dark:text-gray-700;
     }
     .border-style {
         @apply border border-gray-300;
@@ -53,3 +53,5 @@
 body {
     @apply font-yekan;
 }
+
+[x-cloak] { display: none !important; }
