@@ -496,12 +496,12 @@
             <!-- places end -->
 
             <!-- visit start -->
-            <div class="flex flex-col gap-4 px-4">
+            <div class="lg:container flex flex-col gap-4 px-4">
                 <h2 class="text-lg font-medium title_color">مکان های پر
                     بازدید</h2>
 
                 <!-- cards start -->
-                <div class="grid grid-cols-1 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
                     <div
                         class="flex flex-col rounded-2xl overflow-hidden shadow-2xl">
@@ -618,6 +618,220 @@
                 <!-- cards end -->
             </div>
             <!-- visit end -->
+
+            <!-- form trip start -->
+            <section class="p-4 bg-gray-200 mt-10">
+                <div
+                    class="bg-white flex flex-col rounded-2xl sm:max-w-3xl sm:mx-auto">
+
+                    <!-- title start -->
+                    <div
+                        class="flex w-full h-14 text-base font-medium title_color flex-center border-b border-gray-300">درخواست
+                        سفر</div>
+                    <!-- title end -->
+
+                    <!-- usernumber start -->
+                    <div class="px-4">
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 border-b-2 border-dashed ">
+                            <div class="sm:py-6">
+                                <div
+                                    class="px-4 py-6 border-b border-gray-300 sm:border-b-0 sm:border-r sm:py-0">
+                                    <h4
+                                        class="text-xs font-normal title_color mb-4">تعداد
+                                        نفرات</h4>
+                                    <div class="flex w-full gap-4">
+                                        <div
+                                            class="flex-1 relative cursor-pointer">
+                                            <input type="radio" name="user"
+                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible"
+                                                id="one">
+                                            <label for="one"
+                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent">1</label>
+                                        </div>
+
+                                        <div
+                                            class="flex-1 relative cursor-pointer">
+                                            <input type="radio" name="user"
+                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible"
+                                                id="two">
+                                            <label for="two"
+                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent">2</label>
+                                        </div>
+
+                                        <div
+                                            class="flex-1 relative cursor-pointer">
+                                            <input type="radio" name="user"
+                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible"
+                                                id="three">
+                                            <label for="three"
+                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent">3</label>
+                                        </div>
+
+                                        <div
+                                            class="flex-1 relative cursor-pointer">
+                                            <input type="radio" name="user"
+                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible"
+                                                id="four">
+                                            <label for="four"
+                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent">4</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="px-4 py-6">
+                                <h4
+                                    class="text-xs font-normal title_color mb-4">نفرات
+                                    دلخواه</h4>
+                                <div
+                                    class="relative w-full transition-colors text-gray-700 focus-within:text-purple-700">
+                                    <input type="text"
+                                        class="w-full pl-8 h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor"
+                                        class="w-6 h-6 absolute top-2 left-2">
+                                        <path stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- usernumber end -->
+
+                    <!-- info start -->
+                    <div
+                        class="grid grid-cols-1 px-4 pt-4 sm:grid-cols-2 sm:px-0">
+                        <div
+                            class="border-b sm:border-b-0 sm:border-r border-gray-300 pb-4 sm:px-4">
+                            <h4
+                                class="text-base font-medium title_color mb-4">اطلاعات
+                                شخصی</h4>
+                            <input type="text"
+                                class="w-full h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6"
+                                placeholder="نام">
+                            <input type="text"
+                                class="w-full h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6"
+                                placeholder="نام خانوادگی">
+                            <input type="email"
+                                class="w-full h-10 rounded-lg text-sm font-medium peer title_color border border-style invalid:border-red-500 valid:border-green-500 focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6"
+                                placeholder="login@gmail.com">
+                            <p
+                                class="text-sm font-medium text-red-500 invisible peer-invalid:visible">this
+                                email is not valid</p>
+                            <div
+                                class="flex items-center justify-center gap-8 cursor-pointer">
+                                <h4
+                                    class="text-sm font-medium title_color">جنسیت</h4>
+                                <div class="flex items-center gap-4">
+                                    <input type="radio"
+                                        class="focus:ring-0 focus:ring-offset-0"
+                                        name="gender" id="male">
+                                    <label for="male"
+                                        class="text-sm font-medium title_color">اقا</label>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <input type="radio"
+                                        class="focus:ring-0 focus:ring-offset-0"
+                                        name="gender" id="female">
+                                    <label for="female"
+                                        class="text-sm font-medium title_color">خانم</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-4 sm:pt-0 sm:px-4">
+                            <h4
+                                class="text-base font-medium title_color mb-4">روش
+                                پرداخت</h4>
+                            <select
+                                class="w-full h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6">
+                                <option value="1">بانک ملی</option>
+                                <option value="2">بانک ملت</option>
+                                <option value="3">بانک تجارت</option>
+                            </select>
+                            <div
+                                class="flex items-center justify-center gap-8 cursor-pointer flex-wrap">
+                                <h4
+                                    class="text-sm font-medium title_color w-full text-center">از
+                                    طرح های تخفیف بعدی با خبرم کن</h4>
+                                <div class="flex items-center gap-4">
+                                    <input type="radio"
+                                        class="focus:ring-0 focus:ring-offset-0"
+                                        name="gender" id="yes">
+                                    <label for="yes"
+                                        class="text-sm font-medium title_color">بله</label>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <input type="radio"
+                                        class="focus:ring-0 focus:ring-offset-0"
+                                        name="gender" id="no">
+                                    <label for="no"
+                                        class="text-sm font-medium title_color">خیر</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- info end -->
+
+                    <!-- button start -->
+                    <div class="flex p-4" x-data="{open_menu: false}">
+                        <button type="button"
+                            x-on:click="open_menu = true"
+                            class="rounded-2xl gap-4 bg-yellow-500 text-gray-700 w-full h-12 flex items-center justify-center text-lg font-medium sm:w-auto sm:px-6">
+                            <span x-text="open_menu ? 'صبر کنید' : 'مرحله بعد'"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-6 h-6 hidden sm:block"
+                                x-show="!open_menu">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                            <svg x-show="open_menu" x-cloak width="32" height="32"
+                                viewBox="0 0 44 44"
+                                xmlns="http://www.w3.org/2000/svg" stroke="#fff"
+                                style="display: none;">
+                                <g fill="none" fill-rule="evenodd"
+                                    stroke-width="2">
+                                    <circle cx="22" cy="22" r="1">
+                                        <animate attributeName="r" begin="0s"
+                                            dur="1.8s" values="1; 20"
+                                            calcMode="spline" keyTimes="0; 1"
+                                            keySplines="0.165, 0.84, 0.44, 1"
+                                            repeatCount="indefinite"></animate>
+                                        <animate attributeName="stroke-opacity"
+                                            begin="0s" dur="1.8s" values="1; 0"
+                                            calcMode="spline" keyTimes="0; 1"
+                                            keySplines="0.3, 0.61, 0.355, 1"
+                                            repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="22" cy="22" r="1">
+                                        <animate attributeName="r" begin="-0.9s"
+                                            dur="1.8s" values="1; 20"
+                                            calcMode="spline" keyTimes="0; 1"
+                                            keySplines="0.165, 0.84, 0.44, 1"
+                                            repeatCount="indefinite"></animate>
+                                        <animate attributeName="stroke-opacity"
+                                            begin="-0.9s" dur="1.8s"
+                                            values="1; 0" calcMode="spline"
+                                            keyTimes="0; 1"
+                                            keySplines="0.3, 0.61, 0.355, 1"
+                                            repeatCount="indefinite"></animate>
+                                    </circle>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- button end -->
+
+                </div>
+            </section>
+            <!-- form trip end -->
+
         </main>
         <!-- main end -->
 

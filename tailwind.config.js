@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
@@ -11,11 +12,15 @@ module.exports = {
     },
     extend: {
       padding: {
-        'md' : '56%',
+        'md': '56%',
       }
     },
   },
   plugins: [
     require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/forms'),
+    plugin(function({ addVariant }) {
+      addVariant('radio-checked', '&:checked ~ label')
+    }),
   ],
 }
