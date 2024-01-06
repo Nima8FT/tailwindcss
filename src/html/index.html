@@ -62,38 +62,50 @@
 
         <!-- main start -->
         <main class="pt-4">
-            <!-- slider start -->
-            <div class="container">
-                <div
-                    class="swiper slider aspect-video rounded-2xl overflow-hidden mb-4">
-                    <div class="swiper-wrapper">
-                        <a href="#" class="swiper-slide">
-                            <img src="../img/slide1.jpg" alt="slide1"
+            <div class="container grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+                <!-- slider start -->
+                <div class="relative w-full pt-md sm:col-span-2">
+                    <div class="absolute inset-0 flex justify-center items-center">
+                        <div
+                            class="swiper myswiper w-full rounded-2xl">
+                            <div class="swiper-wrapper">
+                                <a href="#" class="swiper-slide">
+                                    <img src="../img/slide3.jpg" alt="slide1"
+                                        class="w-full h-full">
+                                </a>
+                                <a href="#" class="swiper-slide">
+                                    <img src="../img/slide3.jpg" alt="slide2"
+                                        class="w-full h-full">
+                                </a>
+                                <a href="#" class="swiper-slide">
+                                    <img src="../img/slide3.jpg" alt="slide3"
+                                        class="w-full h-full">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- slider end -->
+
+                <!-- banner start -->
+                <div class="col-span-1">
+                    <div class="grid grid-cols-2 sm:grid-cols-1 gap-4">
+                        <a href="#"
+                            class="aspect-video rounded-2xl overflow-hidden">
+                            <img src="../img/slide2.jpg" alt="Slide2"
                                 class="w-full h-full">
                         </a>
-                        <a href="#" class="swiper-slide">
-                            <img src="../img/slide2.jpg" alt="slide2"
-                                class="w-full h-full">
-                        </a>
-                        <a href="#" class="swiper-slide">
-                            <img src="../img/slide3.jpg" alt="slide3"
+                        <a href="#"
+                            class="aspect-video rounded-2xl overflow-hidden">
+                            <img src="../img/slide3.jpg " alt="Slide3"
                                 class="w-full h-full">
                         </a>
                     </div>
-                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <a href="#" class="aspect-video rounded-2xl overflow-hidden">
-                        <img src="../img/slide2.jpg" alt="slide2"
-                            class="w-full h-full">
-                    </a>
-                    <a href="#" class="aspect-video rounded-2xl overflow-hidden">
-                        <img src="../img/slide3.jpg" alt="slide3"
-                            class="w-full h-full">
-                    </a>
-                </div>
+                <!-- banner end -->
+
             </div>
-            <!-- slider end -->
         </main>
         <!-- main end -->
 

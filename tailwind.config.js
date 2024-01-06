@@ -9,7 +9,11 @@ module.exports = {
     fontFamily: {
       'yekan': 'IRANSansX'
     },
-    extend: {},
+    extend: {
+      padding: {
+        'md' : '56%',
+      }
+    },
   },
   plugins: [],
 }
