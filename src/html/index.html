@@ -620,7 +620,7 @@
             <!-- visit end -->
 
             <!-- form trip start -->
-            <section class="p-4 bg-gray-200 mt-10" x-data="handleMenu">
+            <section class="p-4 bg-gray-200 mt-10 mb-10" x-data="handleMenu">
                 <div
                     class="bg-white flex flex-col rounded-2xl sm:max-w-3xl sm:mx-auto">
 
@@ -1030,6 +1030,299 @@
                 </div>
             </section>
             <!-- form trip end -->
+
+            <!-- table start -->
+            <section class="container">
+                <!-- title start -->
+                <div
+                    class="hidden lg:grid text-xs font-medium title_color grid-cols-12 p-4 gap-4">
+                    <div class="col-span-3 text-center">شرکت</div>
+                    <div class="col-span-2 text-center">مقصد</div>
+                    <div class="col-span-2 text-center">هتل</div>
+                    <div class="col-span-2 text-center">مترجم</div>
+                    <div class="col-span-3 text-center">اقدامات</div>
+                </div>
+                <!-- title end -->
+                <!-- cards start -->
+                <div
+                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4">
+                    <!-- profile start -->
+                    <div
+                        class="flex flex-col gap-4 items-center lg:col-span-3 lg:flex-row lg:justify-around">
+                        <div class="relative">
+                            <img src="../img/2Best.JPG" alt="avatar"
+                                class="w-12 h-12 rounded-full">
+                            <div
+                                class="absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 animate-pulse border-white bg-green-500"></div>
+                        </div>
+                        <div class="text-center">
+                            <h3
+                                class="text-sm font-medium title_color mb-2">نیما</h3>
+                            <h4 class="text-xs font-medium title_color">همه
+                                روزه</h4>
+                        </div>
+                    </div>
+                    <!-- profile end -->
+                    <!-- info start -->
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 mt-10 lg:col-span-2 lg:mb-0 lg:mt-0">
+                        <h3 class="font-medium lg:hidden">مقصد</h3>
+                        <h4 class="font-normal">فرانسه</h4>
+                    </div>
+
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
+                        <h3 class="font-medium lg:hidden">هتل</h3>
+                        <h4 class="font-normal">فروانسوی</h4>
+                    </div>
+
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
+                        <h3 class="font-medium lg:hidden">مترجم</h3>
+                        <h4
+                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2">دارد</h4>
+                    </div>
+                    <!-- info end -->
+
+                    <!-- button start -->
+                    <div
+                        class="flex items-center gap-4 px-4 lg:col-span-3 lg:px-0 lg:justify-self-end">
+                        <a href="#"
+                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition">ثبت
+                            نام</a>
+                        <!-- save start -->
+                        <button
+                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative">
+                            <div
+                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible">ذخیره</div>
+                            <div
+                                class="flex justify-center items-center absolute">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                                </svg>
+                            </div>
+                        </button>
+                        <!-- save end -->
+                    </div>
+                    <!-- button end -->
+
+                </div>
+
+                <div
+                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4">
+                    <!-- profile start -->
+                    <div
+                        class="flex flex-col gap-4 items-center lg:col-span-3 lg:flex-row lg:justify-around">
+                        <div class="relative">
+                            <img src="../img/2Best.JPG" alt="avatar"
+                                class="w-12 h-12 rounded-full">
+                            <div
+                                class="absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 animate-pulse border-white bg-green-500"></div>
+                        </div>
+                        <div class="text-center">
+                            <h3
+                                class="text-sm font-medium title_color mb-2">نیما</h3>
+                            <h4 class="text-xs font-medium title_color">همه
+                                روزه</h4>
+                        </div>
+                    </div>
+                    <!-- profile end -->
+                    <!-- info start -->
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 mt-10 lg:col-span-2 lg:mb-0 lg:mt-0">
+                        <h3 class="font-medium lg:hidden">مقصد</h3>
+                        <h4 class="font-normal">فرانسه</h4>
+                    </div>
+
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
+                        <h3 class="font-medium lg:hidden">هتل</h3>
+                        <h4 class="font-normal">فروانسوی</h4>
+                    </div>
+
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
+                        <h3 class="font-medium lg:hidden">مترجم</h3>
+                        <h4
+                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2">دارد</h4>
+                    </div>
+                    <!-- info end -->
+
+                    <!-- button start -->
+                    <div
+                        class="flex items-center gap-4 px-4 lg:col-span-3 lg:px-0 lg:justify-self-end">
+                        <a href="#"
+                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition">ثبت
+                            نام</a>
+                        <!-- save start -->
+                        <button
+                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative">
+                            <div
+                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible">ذخیره</div>
+                            <div
+                                class="flex justify-center items-center absolute">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                                </svg>
+                            </div>
+                        </button>
+                        <!-- save end -->
+                    </div>
+                    <!-- button end -->
+
+                </div>
+
+                <div
+                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4">
+                    <!-- profile start -->
+                    <div
+                        class="flex flex-col gap-4 items-center lg:col-span-3 lg:flex-row lg:justify-around">
+                        <div class="relative">
+                            <img src="../img/2Best.JPG" alt="avatar"
+                                class="w-12 h-12 rounded-full">
+                            <div
+                                class="absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 animate-pulse border-white bg-green-500"></div>
+                        </div>
+                        <div class="text-center">
+                            <h3
+                                class="text-sm font-medium title_color mb-2">نیما</h3>
+                            <h4 class="text-xs font-medium title_color">همه
+                                روزه</h4>
+                        </div>
+                    </div>
+                    <!-- profile end -->
+                    <!-- info start -->
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 mt-10 lg:col-span-2 lg:mb-0 lg:mt-0">
+                        <h3 class="font-medium lg:hidden">مقصد</h3>
+                        <h4 class="font-normal">فرانسه</h4>
+                    </div>
+
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
+                        <h3 class="font-medium lg:hidden">هتل</h3>
+                        <h4 class="font-normal">فروانسوی</h4>
+                    </div>
+
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
+                        <h3 class="font-medium lg:hidden">مترجم</h3>
+                        <h4
+                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2">دارد</h4>
+                    </div>
+                    <!-- info end -->
+
+                    <!-- button start -->
+                    <div
+                        class="flex items-center gap-4 px-4 lg:col-span-3 lg:px-0 lg:justify-self-end">
+                        <a href="#"
+                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition">ثبت
+                            نام</a>
+                        <!-- save start -->
+                        <button
+                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative">
+                            <div
+                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible">ذخیره</div>
+                            <div
+                                class="flex justify-center items-center absolute">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                                </svg>
+                            </div>
+                        </button>
+                        <!-- save end -->
+                    </div>
+                    <!-- button end -->
+
+                </div>
+
+                <div
+                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4">
+                    <!-- profile start -->
+                    <div
+                        class="flex flex-col gap-4 items-center lg:col-span-3 lg:flex-row lg:justify-around">
+                        <div class="relative">
+                            <img src="../img/2Best.JPG" alt="avatar"
+                                class="w-12 h-12 rounded-full">
+                            <div
+                                class="absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 animate-pulse border-white bg-green-500"></div>
+                        </div>
+                        <div class="text-center">
+                            <h3
+                                class="text-sm font-medium title_color mb-2">نیما</h3>
+                            <h4 class="text-xs font-medium title_color">همه
+                                روزه</h4>
+                        </div>
+                    </div>
+                    <!-- profile end -->
+                    <!-- info start -->
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 mt-10 lg:col-span-2 lg:mb-0 lg:mt-0">
+                        <h3 class="font-medium lg:hidden">مقصد</h3>
+                        <h4 class="font-normal">فرانسه</h4>
+                    </div>
+
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
+                        <h3 class="font-medium lg:hidden">هتل</h3>
+                        <h4 class="font-normal">فروانسوی</h4>
+                    </div>
+
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
+                        <h3 class="font-medium lg:hidden">مترجم</h3>
+                        <h4
+                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2">دارد</h4>
+                    </div>
+                    <!-- info end -->
+
+                    <!-- button start -->
+                    <div
+                        class="flex items-center gap-4 px-4 lg:col-span-3 lg:px-0 lg:justify-self-end">
+                        <a href="#"
+                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition">ثبت
+                            نام</a>
+                        <!-- save start -->
+                        <button
+                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative">
+                            <div
+                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible">ذخیره</div>
+                            <div
+                                class="flex justify-center items-center absolute">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                                </svg>
+                            </div>
+                        </button>
+                        <!-- save end -->
+                    </div>
+                    <!-- button end -->
+
+                </div>
+                <!-- cards end -->
+
+            </section>
+            <!-- table end -->
 
         </main>
         <!-- main end -->
