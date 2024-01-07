@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @layer utilities {
-    @variants rtl {
-        .number-fa {
-            -moz-font-feature-settings: "ss02";
-            -webkit-font-feature-settings: "ss02";
-            font-feature-settings: "ss02";
-        }
+    .text-rtl {
+        direction: rtl;
+    }
+
+    .text-ltr {
+        direction: ltr;
     }
 }
 
@@ -81,4 +81,20 @@ body {
 
 [x-cloak] {
     display: none !important;
+}
+
+.handle-direction .rtl-flag {
+    @apply flex !important;
+}
+
+.handle-direction .ltr-flag {
+    @apply hidden !important;
+}
+
+.handle-direction.rtl .ltr-flag {
+    @apply flex !important;
+}
+
+.handle-direction.rtl .rtl-flag {
+    @apply hidden !important;
 }

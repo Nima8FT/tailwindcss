@@ -60,15 +60,14 @@
                                             fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5"
                                             stroke="currentColor"
-                                            class="w-4 h-6">
+                                            class="w-4 h-6 rtl:rotate-180">
                                             <path stroke-linecap="round"
                                                 stroke-linejoin="round"
                                                 d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                         </svg>
                                     </a>
                                     <ul
-                                        class="absolute group-hover:flex hidden list-none flex-col rounded-lg bg-white w-40 overflow-hidden border border-style"
-                                        style="left: 159px; top: 5px;">
+                                        class="absolute group-hover:flex hidden list-none flex-col rounded-lg bg-white w-40 overflow-hidden border border-style left-[159px] -top-[5px] rtl:left-0 rtl:right-[159px]">
                                         <li>
                                             <a href="#"
                                                 class="flex p-2 text-sm font-medium text-gray-700 hover:bg-gray-100 custom-transition">رشته
@@ -128,15 +127,14 @@
                                             fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5"
                                             stroke="currentColor"
-                                            class="w-4 h-6">
+                                            class="w-4 h-6 rtl:rotate-180">
                                             <path stroke-linecap="round"
                                                 stroke-linejoin="round"
                                                 d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                         </svg>
                                     </a>
                                     <ul
-                                        class="absolute group-hover:flex hidden list-none flex-col rounded-lg bg-white w-40 overflow-hidden border border-style"
-                                        style="left: 159px; top: 5px;">
+                                        class="absolute group-hover:flex hidden list-none flex-col rounded-lg bg-white w-40 overflow-hidden border border-style left-[159px] -top-[5px] rtl:right-[159px] rtl:left-0">
                                         <li>
                                             <a href="#"
                                                 class="flex p-2 text-sm font-medium text-gray-700 hover:bg-gray-100 custom-transition">اروپا</a>
@@ -164,15 +162,14 @@
                                             fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5"
                                             stroke="currentColor"
-                                            class="w-4 h-6">
+                                            class="w-4 h-6 rtl:rotate-180">
                                             <path stroke-linecap="round"
                                                 stroke-linejoin="round"
                                                 d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                         </svg>
                                     </a>
                                     <ul
-                                        class="absolute group-hover:flex hidden list-none flex-col rounded-lg bg-white w-40 overflow-hidden border border-style"
-                                        style="left: 159px; top: 5px;">
+                                        class="absolute group-hover:flex hidden list-none flex-col rounded-lg bg-white w-40 overflow-hidden border border-style left-[159px] -top-[5px] rtl:right-[159px]">
                                         <li>
                                             <a href="#"
                                                 class="flex p-2 text-sm font-medium text-gray-700 hover:bg-gray-100 custom-transition">کره
@@ -214,10 +211,23 @@
                     <!-- darkmode end -->
 
                     <!-- country start -->
-                    <div
-                        class="w-10 h-10 rounded-full flex-center cursor-pointer hover:shadow-lg custom-transition">
-                        <img src="../img/rtl.png" alt="flag country"
-                            class="w-10 h-8 rounded-full">
+                    <div x-data="handleDirection()" class="handle-direction">
+                        <!-- rtl start -->
+                        <div
+                            class="w-10 h-10 rounded-full flex-center cursor-pointer hover:shadow-lg custom-transition rtl-flag"
+                            x-on:click="makeRtl()">
+                            <img src="../img/rtl.png" alt="flag country"
+                                class="w-10 h-8 rounded-full">
+                        </div>
+                        <!-- rtl end -->
+                        <!-- ltr start -->
+                        <div
+                            class="w-10 h-10 rounded-full flex-center cursor-pointer hover:shadow-lg custom-transition ltr-flag"
+                            x-on:click="makeLtr()">
+                            <img src="../img/ltr.png" alt="flag country"
+                                class="w-10 h-8 rounded-full">
+                        </div>
+                        <!-- rtl end -->
                     </div>
                     <!-- country end -->
 
@@ -236,7 +246,7 @@
                 class="fixed z-40 inset-0 bg-gray-900 bg-opacity-60 backdrop-blur-sm"
                 x-show="open_menu" x-cloak x-on:click="handleCloseMenu"></div>
             <div
-                class="fixed inset-y-0 left-0 right-auto z-50 w-56 bg-gray-100 rounded-r-3xl"
+                class="fixed inset-y-0 left-0 right-auto z-50 w-56 bg-gray-100 rounded-r-3xl rtl:rounded-l-3xl rtl:rounded-r-none rtl:right-0 rtl:left-auto"
                 x-show="open_menu" x-cloak
                 x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="-left-96"
@@ -263,7 +273,7 @@
                             </svg>
                         </div>
                         <div
-                            class="flex justify-between w-full pl-6 flex-col overflow-hidden transition-all duration-300 ease-in-out"
+                            class="flex justify-between w-full pl-6 rtl:pl-0 rtl:pr-6 flex-col overflow-hidden transition-all duration-300 ease-in-out"
                             x-bind:class="menu_tab == 1 ? 'max-h-96' : 'max-h-0'">
                             <div class="pt-4 flex flex-col gap-4">
                                 <a href="#">کیش</a>
@@ -284,7 +294,7 @@
                                         </svg>
                                     </div>
                                     <div
-                                        class="flex justify-between w-full pl-6 flex-col overflow-hidden transition-all duration-300 ease-in-out"
+                                        class="flex justify-between w-full pl-6 rtl:pl-0 rtl:pr-6 flex-col overflow-hidden transition-all duration-300 ease-in-out"
                                         x-bind:class="submenu_tab==2 ? 'max-h-96' : 'max-h-0'">
                                         <div class="mt-4 gap-4 flex flex-col">
                                             <a href="#">رشته کوه البرز</a>
@@ -314,7 +324,7 @@
                             </svg>
                         </div>
                         <div
-                            class="flex justify-between w-full pl-6 flex-col overflow-hidden transition-all duration-300 ease-in-out"
+                            class="flex justify-between w-full pl-6 rtl:pl-0 rtl:pr-6 flex-col overflow-hidden transition-all duration-300 ease-in-out"
                             x-bind:class="menu_tab == 2 ? 'max-h-96' : 'max-h-0'">
                             <div class="pt-4 flex flex-col gap-4">
                                 <a href="#">انتالیا</a>
@@ -335,7 +345,7 @@
                                         </svg>
                                     </div>
                                     <div
-                                        class="flex justify-between w-full pl-6 flex-col overflow-hidden transition-all duration-300 ease-in-out"
+                                        class="flex justify-between w-full pl-6 rtl:pl-0 rtl:pr-6 flex-col overflow-hidden transition-all duration-300 ease-in-out"
                                         x-bind:class="submenu_tab==3 ? 'max-h-96' : 'max-h-0'">
                                         <div class="mt-4 gap-4 flex flex-col">
                                             <a href="#">اروپا</a>
@@ -362,7 +372,7 @@
                                         </svg>
                                     </div>
                                     <div
-                                        class="flex justify-between w-full pl-6 flex-col overflow-hidden transition-all duration-300 ease-in-out"
+                                        class="flex justify-between w-full pl-6 rtl:pl-0 rtl:pr-0 flex-col overflow-hidden transition-all duration-300 ease-in-out"
                                         x-bind:class="submenu_tab==4 ? 'max-h-96' : 'max-h-0'">
                                         <div class="mt-4 gap-4 flex flex-col">
                                             <a href="#">کره ی جنوبی</a>
@@ -452,7 +462,8 @@
                     <a href="#" class="flex lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
+                            stroke="currentColor"
+                            class="w-6 h-6 rtl:rotate-180">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
@@ -462,8 +473,8 @@
 
                 <!-- slide start -->
                 <div class="lg:col-span-3">
-                    <div class="swiper places" style="padding: 1rem;">
-                        <div class="swiper-wrapper" style="height: auto;">
+                    <div class="swiper places py-2 rtl:text-ltr px-4">
+                        <div class="swiper-wrapper">
                             <!-- card start -->
                             <div
                                 class="swiper-slide border border-gray-300 rounded-2xl overflow-hidden flex flex-col cursor-pointer bg-white"
@@ -785,7 +796,7 @@
                             class="grid grid-cols-1 sm:grid-cols-2 border-b-2 border-dashed ">
                             <div class="sm:py-6">
                                 <div
-                                    class="px-4 py-6 border-b border-gray-300 sm:border-b-0 sm:border-r sm:py-0">
+                                    class="px-4 py-6 border-b border-gray-300 sm:border-b-0 sm:rtl:border-r-0 sm:rtl:border-l    sm:border-r sm:py-0">
                                     <h4
                                         class="text-xs font-normal title_color mb-4">تعداد
                                         نفرات</h4>
@@ -836,11 +847,11 @@
                                 <div
                                     class="relative w-full transition-colors text-gray-700 focus-within:text-purple-700">
                                     <input type="text"
-                                        class="w-full pl-8 h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md">
+                                        class="w-full pl-8 rtl:pl-0 rtl:pr-8 h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor"
-                                        class="w-6 h-6 absolute top-2 left-2">
+                                        class="w-6 h-6 absolute top-2 left-2 rtl:left-auto rtl:right-2">
                                         <path stroke-linecap="round"
                                             stroke-linejoin="round"
                                             d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
@@ -855,7 +866,7 @@
                     <div
                         class="grid grid-cols-1 px-4 pt-4 sm:grid-cols-2 sm:px-0">
                         <div
-                            class="border-b sm:border-b-0 sm:border-r border-gray-300 pb-4 sm:px-4">
+                            class="border-b sm:border-b-0 rtl:sm:border-l sm:border-r sm:rtl:border-r-0 border-gray-300 pb-4 sm:px-4">
                             <h4
                                 class="text-base font-medium title_color mb-4">اطلاعات
                                 شخصی</h4>
@@ -926,7 +937,7 @@
                     <!-- info end -->
 
                     <!-- button start -->
-                    <div class="flex p-4">
+                    <div class="flex p-4 rtl:justify-end">
                         <button type="button"
                             x-on:click="handleOpen()"
                             class="rounded-2xl gap-4 bg-yellow-500 text-gray-700 w-full h-12 flex items-center justify-center text-lg font-medium sm:w-auto sm:px-6">
@@ -936,7 +947,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor"
-                                class="w-6 h-6 hidden sm:block"
+                                class="w-6 h-6 hidden sm:block rtl:rotate-180"
                                 x-show="!go_next">
                                 <path stroke-linecap="round"
                                     stroke-linejoin="round"
@@ -1102,7 +1113,7 @@
                                             class="title_color text-base font-medium">انتقال</h3></div>
                                     <div>
                                         <div
-                                            class="flex items-center border border-purple-700 w-40 h-8 rounded-2xl relative">
+                                            class="flex items-center border border-purple-700 w-40 h-8 rounded-2xl relative rtl:flex-row-reverse">
                                             <div
                                                 class="flex-1 flex-center text-gray-700 font-normal text-sm bg-transparent z-10"
                                                 x-on:click="ground()"

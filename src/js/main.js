@@ -76,3 +76,25 @@ function handleMobile() {
     }
   }
 }
+
+function handleDirection() {
+  return {
+    makeRtl() {
+      document.querySelector('.handle-direction').classList.add('rtl');
+      document.documentElement.dir = 'rtl';
+      localStorage.setItem('dir', 'rtl');
+    },
+    makeLtr() {
+      document.querySelector('.handle-direction').classList.remove('rtl');
+      document.documentElement.dir = 'ltr';
+      localStorage.setItem('dir', 'ltr');
+    }
+  }
+}
+
+window.onload = () => {
+  document.documentElement.dir = localStorage.getItem('dir');
+  if (localStorage.getItem('dir') == 'rtl') {
+    document.querySelector('.handle-direction').classList.add('rtl');
+  }
+}
