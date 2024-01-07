@@ -69,6 +69,10 @@
     .swiper-array .swiper-button-prev {
         @apply -left-3;
     }
+
+    .scroll_fixed {
+        @apply h-full overflow-hidden;
+    }
 }
 
 body {

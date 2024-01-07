@@ -60,3 +60,19 @@ function handleMenu() {
     },
   }
 }
+
+function handleMobile() {
+  return {
+    open_menu: false,
+    menu_tab: 0,
+    submenu_tab: 0,
+    handleOpenMenu() {
+      this.open_menu = true;
+      document.body.classList.add('scroll_fixed');
+    },
+    handleCloseMenu() {
+      this.open_menu = false;
+      document.body.classList.remove('scroll_fixed');
+    }
+  }
+}
