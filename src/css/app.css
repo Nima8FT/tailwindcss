@@ -37,11 +37,11 @@
 
 @layer components {
     .title_color {
-        @apply text-gray-700;
+        @apply text-gray-700 dark:text-gray-300;
     }
 
     .border-style {
-        @apply border border-gray-300;
+        @apply border border-gray-300 dark:border-gray-600;
     }
 
     .flex-center {
@@ -97,4 +97,20 @@ body {
 
 .handle-direction.rtl .rtl-flag {
     @apply hidden !important;
+}
+
+.handle-darkmode .moon {
+    @apply block;
+}
+
+.handle-darkmode .sun {
+    @apply hidden;
+}
+
+.handle-darkmode.darkmode .moon {
+    @apply hidden;
+}
+
+.handle-darkmode.darkmode .sun {
+    @apply block;
 }

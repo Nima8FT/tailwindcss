@@ -7,10 +7,11 @@
         <link rel="stylesheet" href="../css/swiper-bundle.min.css">
         <link rel="stylesheet" href="../css/output.css">
     </head>
-    <body class="bg-[#f2f2f2]">
+    <body class="bg-[#f2f2f2] dark:bg-dark-600">
 
         <!-- navbar start -->
-        <nav class="w-full h-14 bg-white border-b border-style shadow-lg"
+        <nav
+            class="w-full h-14 bg-white border-b border-style shadow-lg dark:bg-dark-800"
             x-data="handleMobile()">
             <section class="container h-full flex justify-between items-center">
 
@@ -19,7 +20,8 @@
                     <svg x-on:click="handleOpenMenu()"
                         xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 sm:hidden">
+                        stroke="currentColor"
+                        class="w-6 h-6 sm:hidden title_color">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
@@ -199,14 +201,26 @@
                 <div class="flex-center gap-4">
                     <!-- darkmode start -->
                     <div
-                        class="w-10 h-10 rounded-full flex-center cursor-pointer hover:shadow-lg custom-transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                        class="w-10 h-10 rounded-full flex-center cursor-pointer hover:shadow-lg custom-transition handle-darkmode"
+                        x-data="darkMode()">
+                        <!-- dark -->
+                        <svg x-on:click="makeDark()"
+                            xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
+                            stroke="currentColor"
+                            class="w-6 h-6 moon animate-wiggle">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
                         </svg>
-
+                        <!-- light -->
+                        <svg x-on:click="makeLight()"
+                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 sun animate-wiggle text-yellow-500">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                        </svg>
                     </div>
                     <!-- darkmode end -->
 
@@ -246,7 +260,7 @@
                 class="fixed z-40 inset-0 bg-gray-900 bg-opacity-60 backdrop-blur-sm"
                 x-show="open_menu" x-cloak x-on:click="handleCloseMenu"></div>
             <div
-                class="fixed inset-y-0 left-0 right-auto z-50 w-56 bg-gray-100 rounded-r-3xl rtl:rounded-l-3xl rtl:rounded-r-none rtl:right-0 rtl:left-auto"
+                class="fixed inset-y-0 left-0 right-auto z-50 w-56 bg-gray-100 dark:bg-gray-800 rounded-r-3xl rtl:rounded-l-3xl rtl:rounded-r-none rtl:right-0 rtl:left-auto"
                 x-show="open_menu" x-cloak
                 x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="-left-96"
@@ -266,7 +280,7 @@
                                 x-bind:class="menu_tab==1 ? 'rotate-0' : '-rotate-90'"
                                 fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor"
-                                class="w-4 h-6 custom-transition">
+                                class="w-4 h-6 custom-transition title_color">
                                 <path stroke-linecap="round"
                                     stroke-linejoin="round"
                                     d="m19.5 8.25-7.5 7.5-7.5-7.5" />
@@ -278,7 +292,8 @@
                             <div class="pt-4 flex flex-col gap-4">
                                 <a href="#">کیش</a>
                                 <div>
-                                    <div class="flex justify-between w-full"
+                                    <div
+                                        class="flex justify-between w-full title_color"
                                         x-on:click="submenu_tab = 2">
                                         <span>کوهنوردی</span>
                                         <svg
@@ -317,7 +332,7 @@
                                 x-bind:class="menu_tab==2 ? 'rotate-0' : '-rotate-90'"
                                 fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor"
-                                class="w-4 h-6 custom-transition">
+                                class="w-4 h-6 custom-transition title_color">
                                 <path stroke-linecap="round"
                                     stroke-linejoin="round"
                                     d="m19.5 8.25-7.5 7.5-7.5-7.5" />
@@ -401,7 +416,7 @@
                     <div
                         class="absolute inset-0 flex justify-center items-center swiper-array">
                         <div
-                            class="swiper myswiper w-full rounded-2xl">
+                            class="swiper myswiper w-full rounded-2xl rtl:text-ltr">
                             <div class="swiper-wrapper">
                                 <a href="#" class="swiper-slide">
                                     <img src="../img/slide3.jpg" alt="slide1"
@@ -454,7 +469,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor"
-                            class="w-40 h-24 hidden lg:block">
+                            class="w-40 h-24 hidden lg:block title_color">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
                         </svg>
@@ -463,7 +478,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor"
-                            class="w-6 h-6 rtl:rotate-180">
+                            class="w-6 h-6 rtl:rotate-180 title_color">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
@@ -477,7 +492,7 @@
                         <div class="swiper-wrapper">
                             <!-- card start -->
                             <div
-                                class="swiper-slide border border-gray-300 rounded-2xl overflow-hidden flex flex-col cursor-pointer bg-white"
+                                class="swiper-slide border border-gray-300 dark:border-gray-600 rounded-2xl overflow-hidden flex flex-col cursor-pointer bg-white dark:bg-dark-800"
                                 style="width: 20rem;">
                                 <div class="w-full group relative pt-md">
                                     <img src="../img/1.jpg" alt="avatar"
@@ -499,7 +514,7 @@
                                         </p>
                                     </div>
                                     <a href="#"
-                                        class="h-10 w-full flex-center border border-gray-300 gap-2 rounded-2xl hover:bg-purple-700 custom-transition hover:text-white">
+                                        class="h-10 w-full flex-center border border-gray-300 gap-2 rounded-2xl hover:bg-purple-700 custom-transition hover:text-white dark:hover:bg-indigo-400 dark:text-gray-300 dark:hover:border-indigo-400">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5"
@@ -520,7 +535,7 @@
                             </div>
 
                             <div
-                                class="swiper-slide border border-gray-300 rounded-2xl overflow-hidden flex flex-col cursor-pointer bg-white"
+                                class="swiper-slide border border-gray-300 dark:border-gray-600 rounded-2xl overflow-hidden flex flex-col cursor-pointer bg-white dark:bg-dark-800"
                                 style="width: 20rem;">
                                 <div class="w-full group relative pt-md">
                                     <img src="../img/1.jpg" alt="avatar"
@@ -542,7 +557,7 @@
                                         </p>
                                     </div>
                                     <a href="#"
-                                        class="h-10 w-full flex-center border border-gray-300 gap-2 rounded-2xl hover:bg-purple-700 custom-transition hover:text-white">
+                                        class="h-10 w-full flex-center border border-gray-300 gap-2 rounded-2xl hover:bg-purple-700 custom-transition hover:text-white dark:hover:bg-indigo-400 dark:text-gray-300 dark:hover:border-indigo-400">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5"
@@ -563,7 +578,7 @@
                             </div>
 
                             <div
-                                class="swiper-slide border border-gray-300 rounded-2xl overflow-hidden flex flex-col cursor-pointer bg-white"
+                                class="swiper-slide border border-gray-300 dark:border-gray-600 rounded-2xl overflow-hidden flex flex-col cursor-pointer bg-white dark:bg-dark-800"
                                 style="width: 20rem;">
                                 <div class="w-full group relative pt-md">
                                     <img src="../img/1.jpg" alt="avatar"
@@ -585,7 +600,7 @@
                                         </p>
                                     </div>
                                     <a href="#"
-                                        class="h-10 w-full flex-center border border-gray-300 gap-2 rounded-2xl hover:bg-purple-700 custom-transition hover:text-white">
+                                        class="h-10 w-full flex-center border border-gray-300 gap-2 rounded-2xl hover:bg-purple-700 custom-transition hover:text-white dark:hover:bg-indigo-400 dark:text-gray-300 dark:hover:border-indigo-400">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5"
@@ -606,7 +621,7 @@
                             </div>
 
                             <div
-                                class="swiper-slide border border-gray-300 rounded-2xl overflow-hidden flex flex-col cursor-pointer bg-white"
+                                class="swiper-slide border border-gray-300 dark:border-gray-600 rounded-2xl overflow-hidden flex flex-col cursor-pointer bg-white dark:bg-dark-800"
                                 style="width: 20rem;">
                                 <div class="w-full group relative pt-md">
                                     <img src="../img/1.jpg" alt="avatar"
@@ -628,7 +643,50 @@
                                         </p>
                                     </div>
                                     <a href="#"
-                                        class="h-10 w-full flex-center border border-gray-300 gap-2 rounded-2xl hover:bg-purple-700 custom-transition hover:text-white">
+                                        class="h-10 w-full flex-center border border-gray-300 gap-2 rounded-2xl hover:bg-purple-700 custom-transition hover:text-white dark:hover:bg-indigo-400 dark:text-gray-300 dark:hover:border-indigo-400">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5"
+                                            stroke="currentColor"
+                                            class="w-6 h-6">
+                                            <path stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
+                                            <path stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-medium currentColor">مشاهده
+                                            عکس های بیشتر</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class="swiper-slide border border-gray-300 dark:border-gray-600 rounded-2xl overflow-hidden flex flex-col cursor-pointer bg-white dark:bg-dark-800"
+                                style="width: 20rem;">
+                                <div class="w-full group relative pt-md">
+                                    <img src="../img/1.jpg" alt="avatar"
+                                        class="absolute inset-0 w-full h-full">
+                                    <div
+                                        class="absolute top-4 -left-4 group-hover:left-0 transition-all ease-in-out duration-300 bg-red-600 text-white w-20 h-10 text-md font-normal flex items-center justify-center rounded-r-xl">20%</div>
+                                </div>
+                                <div class="p-4 flex flex-col">
+                                    <h2
+                                        class="mb-4 title_color text-base font-medium line-clamp-1">جنگل
+                                        امازون</h2>
+                                    <div class="flex h-12 mb-8">
+                                        <p
+                                            class="title_color text-sm font-normal leading-6 line-clamp-2">
+                                            تصویری که میبینید مربوط به جنگل های
+                                            امازون
+                                            میباشد. که یکی از عجایب هفتگانه جهان
+                                            است.
+                                        </p>
+                                    </div>
+                                    <a href="#"
+                                        class="h-10 w-full flex-center border border-gray-300 gap-2 rounded-2xl hover:bg-purple-700 custom-transition hover:text-white dark:hover:bg-indigo-400 dark:text-gray-300 dark:hover:border-indigo-400">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5"
@@ -674,7 +732,7 @@
                             <div
                                 class="absolute inset-0 flex-center bg-gray-900 bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-150 ease-in">
                                 <a href="#"
-                                    class="fle px-4 py-2 rounded-2xl text-base font-medium text-white bg-purple-700">ادامه
+                                    class="fle px-4 py-2 rounded-2xl text-base font-medium text-white bg-purple-700 dark:bg-indigo-400">ادامه
                                     مطلب</a>
                             </div>
                         </div>
@@ -694,7 +752,7 @@
                                 </p>
                             </div>
                             <a href="#"
-                                class="flex text-purple-700 text-lg font-medium">ادامه
+                                class="flex text-purple-700 text-lg font-medium dark:text-indigo-400">ادامه
                                 مطلب ...</a>
                         </div>
                         <!-- title end -->
@@ -711,7 +769,7 @@
                             <div
                                 class="absolute inset-0 flex-center bg-gray-900 bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-150 ease-in">
                                 <a href="#"
-                                    class="fle px-4 py-2 rounded-2xl text-base font-medium text-white bg-purple-700">ادامه
+                                    class="fle px-4 py-2 rounded-2xl text-base font-medium text-white bg-purple-700 dark:bg-indigo-400">ادامه
                                     مطلب</a>
                             </div>
                         </div>
@@ -731,7 +789,7 @@
                                 </p>
                             </div>
                             <a href="#"
-                                class="flex text-purple-700 text-lg font-medium">ادامه
+                                class="flex text-purple-700 text-lg font-medium dark:text-indigo-400">ادامه
                                 مطلب ...</a>
                         </div>
                         <!-- title end -->
@@ -748,7 +806,7 @@
                             <div
                                 class="absolute inset-0 flex-center bg-gray-900 bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-150 ease-in">
                                 <a href="#"
-                                    class="fle px-4 py-2 rounded-2xl text-base font-medium text-white bg-purple-700">ادامه
+                                    class="fle px-4 py-2 rounded-2xl text-base font-medium text-white bg-purple-700 dark:bg-indigo-400">ادامه
                                     مطلب</a>
                             </div>
                         </div>
@@ -768,21 +826,21 @@
                                 </p>
                             </div>
                             <a href="#"
-                                class="flex text-purple-700 text-lg font-medium">ادامه
+                                class="flex text-purple-700 text-lg font-medium dark:text-indigo-400">ادامه
                                 مطلب ...</a>
                         </div>
                         <!-- title end -->
                     </div>
-
                 </div>
                 <!-- cards end -->
             </div>
             <!-- visit end -->
 
             <!-- form trip start -->
-            <section class="p-4 bg-gray-200 mt-10 mb-10" x-data="handleMenu">
+            <section class="p-4 bg-gray-200 mt-10 mb-10 dark:bg-dark-600"
+                x-data="handleMenu">
                 <div
-                    class="bg-white flex flex-col rounded-2xl sm:max-w-3xl sm:mx-auto">
+                    class="bg-white flex flex-col rounded-2xl sm:max-w-3xl sm:mx-auto dark:bg-dark-800">
 
                     <!-- title start -->
                     <div
@@ -804,37 +862,37 @@
                                         <div
                                             class="flex-1 relative cursor-pointer">
                                             <input type="radio" name="user"
-                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible"
+                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible dark:radio-checked:bg-indigo-400"
                                                 id="one">
                                             <label for="one"
-                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent">1</label>
+                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent dark:text-indigo-400 dark:border-indigo-400">1</label>
                                         </div>
 
                                         <div
                                             class="flex-1 relative cursor-pointer">
                                             <input type="radio" name="user"
-                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible"
+                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible dark:radio-checked:bg-indigo-400"
                                                 id="two">
                                             <label for="two"
-                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent">2</label>
+                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent dark:text-indigo-400 dark:border-indigo-400">2</label>
                                         </div>
 
                                         <div
                                             class="flex-1 relative cursor-pointer">
                                             <input type="radio" name="user"
-                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible"
+                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible dark:radio-checked:bg-indigo-400"
                                                 id="three">
                                             <label for="three"
-                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent">3</label>
+                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent dark:text-indigo-400 dark:border-indigo-400">3</label>
                                         </div>
 
                                         <div
                                             class="flex-1 relative cursor-pointer">
                                             <input type="radio" name="user"
-                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible"
+                                                class="absolute radio-checked:bg-purple-700 radio-checked:text-white top-0 right-0 invisible dark:radio-checked:bg-indigo-400"
                                                 id="four">
                                             <label for="four"
-                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent">4</label>
+                                                class="w-full cursor-pointer shadow-xl h-10 transition-all duration-150 ease-in-out flex-center text-gray-700 font-medium text-xl border-2 border-purple-700 rounded-xl bg-transparent dark:text-indigo-400 dark:border-indigo-400">4</label>
                                         </div>
                                     </div>
                                 </div>
@@ -847,11 +905,11 @@
                                 <div
                                     class="relative w-full transition-colors text-gray-700 focus-within:text-purple-700">
                                     <input type="text"
-                                        class="w-full pl-8 rtl:pl-0 rtl:pr-8 h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md">
+                                        class="w-full pl-10 rtl:pl-0 rtl:pr-10 h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md dark:bg-zinc-700 dark:focus:border-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor"
-                                        class="w-6 h-6 absolute top-2 left-2 rtl:left-auto rtl:right-2">
+                                        class="w-6 h-6 absolute top-2 left-2 rtl:left-auto rtl:right-2 dark:text-gray-300 dark:focus-within:text-indigo-400">
                                         <path stroke-linecap="round"
                                             stroke-linejoin="round"
                                             d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
@@ -871,13 +929,13 @@
                                 class="text-base font-medium title_color mb-4">اطلاعات
                                 شخصی</h4>
                             <input type="text"
-                                class="w-full h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6"
+                                class="w-full h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6 dark:bg-zinc-700 dark:focus:border-gray-600"
                                 placeholder="نام">
                             <input type="text"
-                                class="w-full h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6"
+                                class="w-full h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6 dark:bg-zinc-700 dark:focus:border-gray-600"
                                 placeholder="نام خانوادگی">
                             <input type="email"
-                                class="w-full h-10 rounded-lg text-sm font-medium peer title_color border border-style invalid:border-red-500 valid:border-green-500 focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6"
+                                class="w-full h-10 rounded-lg text-sm font-medium peer title_color border border-style invalid:border-red-500 valid:border-green-500 focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6 dark:bg-zinc-700 dark:focus:border-gray-600"
                                 placeholder="login@gmail.com">
                             <p
                                 class="text-sm font-medium text-red-500 invisible peer-invalid:visible">this
@@ -907,7 +965,7 @@
                                 class="text-base font-medium title_color mb-4">روش
                                 پرداخت</h4>
                             <select
-                                class="w-full h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6">
+                                class="w-full h-10 rounded-lg text-sm font-medium title_color border border-style focus:border-gray-300 focus:ring-0 transition-shadow ease-in-out duration-150 focus:shadow-md mb-6 dark:bg-zinc-700 dark:focus:border-gray-600">
                                 <option value="1">بانک ملی</option>
                                 <option value="2">بانک ملت</option>
                                 <option value="3">بانک تجارت</option>
@@ -1013,14 +1071,14 @@
                         x-transition:leave="transition-all ease-in duration-300"
                         x-transition:leave-start="top-0"
                         x-transition:leave-end="top-96">
-                        <div class="bg-white rounded-2xl max-w-xl w-full m-2"
+                        <div class="bg-white rounded-2xl max-w-xl w-full m-2 dark:bg-zinc-800"
                             x-on:click.away="cancelMenu()">
                             <div
                                 class="w-full h-12 title_color text-base font-medium flex-center">ویژگی
                                 های سفرتان را انتخاب کنید</div>
                             <ul class="flex flex-col list-none">
                                 <li
-                                    class="even:bg-white odd:bg-gray-100 w-full h-12 flex items-center justify-between px-4">
+                                    class="even:bg-white odd:bg-gray-100 w-full h-12 flex items-center justify-between px-4 dark:even:bg-zinc-700 dark:odd:bg-zinc-800">
                                     <div><h3
                                             class="title_color text-base font-medium">غذا</h3></div>
                                     <ul
@@ -1028,28 +1086,28 @@
                                         <li class="relative">
                                             <input type="checkbox" name="food"
                                                 id="breakfast"
-                                                class="absolute top-0 right-0 invisible radio-checked:bg-purple-700 radio-checked:text-white">
+                                                class="absolute top-0 right-0 invisible radio-checked:bg-purple-700 radio-checked:text-white dark:radio-checked:bg-indigo-400">
                                             <label for="breakfast"
-                                                class="text-sm font-medium text-purple-700 border border-purple-700 px-2 py-1 rounded-lg cursor-pointer ">صبحانه</label>
+                                                class="text-sm font-medium text-purple-700 border border-purple-700 px-2 py-1 rounded-lg cursor-pointer dark:text-indigo-400 dark:border-indigo-400">صبحانه</label>
                                         </li>
                                         <li class="relative">
                                             <input type="checkbox" name="food"
                                                 id="launch"
-                                                class="absolute top-0 right-0 invisible radio-checked:bg-purple-700 radio-checked:text-white">
+                                                class="absolute top-0 right-0 invisible radio-checked:bg-purple-700 radio-checked:text-white dark:radio-checked:bg-indigo-400">
                                             <label for="launch"
-                                                class="text-sm font-medium text-purple-700 border border-purple-700 px-2 py-1 rounded-lg cursor-pointer ">ناهار</label>
+                                                class="text-sm font-medium text-purple-700 border border-purple-700 px-2 py-1 rounded-lg cursor-pointer dark:text-indigo-400 dark:border-indigo-400">ناهار</label>
                                         </li>
                                         <li class="relative">
                                             <input type="checkbox" name="food"
                                                 id="dinner"
-                                                class="absolute top-0 right-0 invisible radio-checked:bg-purple-700 radio-checked:text-white">
+                                                class="absolute top-0 right-0 invisible radio-checked:bg-purple-700 radio-checked:text-white dark:radio-checked:bg-indigo-400">
                                             <label for="dinner"
-                                                class="text-sm font-medium text-purple-700 border border-purple-700 px-2 py-1 rounded-lg cursor-pointer ">شام</label>
+                                                class="text-sm font-medium text-purple-700 border border-purple-700 px-2 py-1 rounded-lg cursor-pointer dark:text-indigo-400 dark:border-indigo-400">شام</label>
                                         </li>
                                     </ul>
                                 </li>
                                 <li
-                                    class="even:bg-white odd:bg-gray-100 w-full h-12 flex items-center justify-between px-4">
+                                    class="even:bg-white odd:bg-gray-100 w-full h-12 flex items-center justify-between px-4 dark:even:bg-zinc-700 dark:odd:bg-zinc-800">
                                     <div><h3
                                             class="title_color text-base font-medium">مکان
                                             های دیدنی</h3></div>
@@ -1079,7 +1137,7 @@
                                     </ul>
                                 </li>
                                 <li
-                                    class="even:bg-white odd:bg-gray-100 w-full h-12 flex items-center justify-between px-4">
+                                    class="even:bg-white odd:bg-gray-100 w-full h-12 flex items-center justify-between px-4 dark:even:bg-zinc-700 dark:odd:bg-zinc-800">
                                     <div><h3
                                             class="title_color text-base font-medium">هتل</h3></div>
                                     <ul
@@ -1089,50 +1147,50 @@
                                                 id="threes"
                                                 class="absolute top-0 right-0 invisible radio-checked:bg-yellow-500 radio-checked:text-white">
                                             <label for="threes"
-                                                class="text-sm font-medium text-gray-700 border border-yellow-500 px-2 py-1 rounded-lg cursor-pointer w-12 flex justify-center">3</label>
+                                                class="text-sm font-medium text-gray-700 border border-yellow-500 px-2 py-1 rounded-lg cursor-pointer w-12 flex justify-center dark:text-white">3</label>
                                         </li>
                                         <li class="relative">
                                             <input type="radio" name="hotel"
                                                 id="fours"
                                                 class="absolute top-0 right-0 invisible radio-checked:bg-yellow-500 radio-checked:text-white">
                                             <label for="fours"
-                                                class="text-sm font-medium text-gray-700 border border-yellow-500 px-2 py-1 rounded-lg cursor-pointer w-12 flex justify-center">4</label>
+                                                class="text-sm font-medium text-gray-700 border border-yellow-500 px-2 py-1 rounded-lg cursor-pointer w-12 flex justify-center dark:text-white">4</label>
                                         </li>
                                         <li class="relative">
                                             <input type="radio" name="hotel"
                                                 id="five"
                                                 class="absolute top-0 right-0 invisible radio-checked:bg-yellow-500 radio-checked:text-white">
                                             <label for="five"
-                                                class="text-sm font-medium text-gray-700 border border-yellow-500 px-2 py-1 rounded-lg cursor-pointer w-12 flex justify-center">5</label>
+                                                class="text-sm font-medium text-gray-700 border border-yellow-500 px-2 py-1 rounded-lg cursor-pointer w-12 flex justify-center dark:text-white">5</label>
                                         </li>
                                     </ul>
                                 </li>
                                 <li
-                                    class="even:bg-white odd:bg-gray-100 w-full h-12 flex items-center justify-between px-4">
+                                    class="even:bg-white odd:bg-gray-100 w-full h-12 flex items-center justify-between px-4 dark:even:bg-zinc-700 dark:odd:bg-zinc-800">
                                     <div><h3
                                             class="title_color text-base font-medium">انتقال</h3></div>
                                     <div>
                                         <div
-                                            class="flex items-center border border-purple-700 w-40 h-8 rounded-2xl relative rtl:flex-row-reverse">
+                                            class="flex items-center border border-purple-700 w-40 h-8 rounded-2xl relative rtl:flex-row-reverse dark:border-indigo-400">
                                             <div
-                                                class="flex-1 flex-center text-gray-700 font-normal text-sm bg-transparent z-10"
+                                                class="flex-1 flex-center text-gray-700 font-normal text-sm bg-transparent z-10 dark:text-gray-300"
                                                 x-on:click="ground()"
                                                 x-bind:class="slider_tab ? 'text-white font-medium' : 'text-gray-700 font-normal cursor-pointer'">زمینی</div>
                                             <div
-                                                class="flex-1 flex-center text-gray-700 font-normal text-sm bg-transparent z-10"
+                                                class="flex-1 flex-center text-gray-700 font-normal text-sm bg-transparent z-10 dark:text-gray-300"
                                                 x-on:click="air()"
                                                 x-bind:class="slider_tab ? 'text-gray-700 font-normal cursor-pointer' : 'text-white font-medium'">هوایی</div>
                                             <input type="radio" name="transfer"
                                                 id="transfer"
                                                 class="absolute top-0 right-0 invisible">
                                             <label for="transfer"
-                                                class="absolute w-1/2 h-full top-0 right-0 bg-purple-700 rounded-2xl transition-all"
+                                                class="absolute w-1/2 h-full top-0 right-0 bg-purple-700 rounded-2xl transition-all dark:bg-indigo-400"
                                                 x-bind:class="slider_tab ? 'right-1/2' : 'right-0'"></label>
                                         </div>
                                     </div>
                                 </li>
                                 <li
-                                    class="even:bg-white odd:bg-gray-100 w-full h-12 flex items-center justify-between px-4"
+                                    class="even:bg-white odd:bg-gray-100 w-full h-12 flex items-center justify-between px-4 dark:even:bg-zinc-700 dark:odd:bg-zinc-800"
                                     x-bind:class="!slider_tab ? 'pointer-events-none opacity-50 select-none' : ''">
                                     <div><h3
                                             class="title_color text-base font-medium">روش
@@ -1205,7 +1263,7 @@
                 <!-- title end -->
                 <!-- cards start -->
                 <div
-                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4">
+                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4 dark:bg-dark-600">
                     <!-- profile start -->
                     <div
                         class="flex flex-col gap-4 items-center lg:col-span-3 lg:flex-row lg:justify-around">
@@ -1240,7 +1298,7 @@
                         class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
                         <h3 class="font-medium lg:hidden">مترجم</h3>
                         <h4
-                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2">دارد</h4>
+                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2 dark:text-gray-600">دارد</h4>
                     </div>
                     <!-- info end -->
 
@@ -1248,13 +1306,13 @@
                     <div
                         class="flex items-center gap-4 px-4 lg:col-span-3 lg:px-0 lg:justify-self-end">
                         <a href="#"
-                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition">ثبت
+                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition dark:text-indigo-400 dark:border-indigo-400 dark:hover:bg-indigo-400">ثبت
                             نام</a>
                         <!-- save start -->
                         <button
-                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative">
+                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative dark:bg-indigo-400 dark:text-white">
                             <div
-                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible">ذخیره</div>
+                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible dark:bg-indigo-400">ذخیره</div>
                             <div
                                 class="flex justify-center items-center absolute">
                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -1274,7 +1332,7 @@
                 </div>
 
                 <div
-                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4">
+                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4 dark:bg-dark-600">
                     <!-- profile start -->
                     <div
                         class="flex flex-col gap-4 items-center lg:col-span-3 lg:flex-row lg:justify-around">
@@ -1309,7 +1367,7 @@
                         class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
                         <h3 class="font-medium lg:hidden">مترجم</h3>
                         <h4
-                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2">دارد</h4>
+                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2 dark:text-gray-600">دارد</h4>
                     </div>
                     <!-- info end -->
 
@@ -1317,13 +1375,13 @@
                     <div
                         class="flex items-center gap-4 px-4 lg:col-span-3 lg:px-0 lg:justify-self-end">
                         <a href="#"
-                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition">ثبت
+                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition dark:text-indigo-400 dark:border-indigo-400 dark:hover:bg-indigo-400">ثبت
                             نام</a>
                         <!-- save start -->
                         <button
-                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative">
+                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative dark:bg-indigo-400 dark:text-white">
                             <div
-                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible">ذخیره</div>
+                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible dark:bg-indigo-400">ذخیره</div>
                             <div
                                 class="flex justify-center items-center absolute">
                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -1343,7 +1401,7 @@
                 </div>
 
                 <div
-                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4">
+                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4 dark:bg-dark-600">
                     <!-- profile start -->
                     <div
                         class="flex flex-col gap-4 items-center lg:col-span-3 lg:flex-row lg:justify-around">
@@ -1378,7 +1436,7 @@
                         class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
                         <h3 class="font-medium lg:hidden">مترجم</h3>
                         <h4
-                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2">دارد</h4>
+                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2 dark:text-gray-600">دارد</h4>
                     </div>
                     <!-- info end -->
 
@@ -1386,13 +1444,13 @@
                     <div
                         class="flex items-center gap-4 px-4 lg:col-span-3 lg:px-0 lg:justify-self-end">
                         <a href="#"
-                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition">ثبت
+                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition dark:text-indigo-400 dark:border-indigo-400 dark:hover:bg-indigo-400">ثبت
                             نام</a>
                         <!-- save start -->
                         <button
-                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative">
+                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative dark:bg-indigo-400 dark:text-white">
                             <div
-                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible">ذخیره</div>
+                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible dark:bg-indigo-400">ذخیره</div>
                             <div
                                 class="flex justify-center items-center absolute">
                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -1412,7 +1470,7 @@
                 </div>
 
                 <div
-                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4">
+                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4 dark:bg-dark-600">
                     <!-- profile start -->
                     <div
                         class="flex flex-col gap-4 items-center lg:col-span-3 lg:flex-row lg:justify-around">
@@ -1447,7 +1505,7 @@
                         class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
                         <h3 class="font-medium lg:hidden">مترجم</h3>
                         <h4
-                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2">دارد</h4>
+                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2 dark:text-gray-600">دارد</h4>
                     </div>
                     <!-- info end -->
 
@@ -1455,13 +1513,82 @@
                     <div
                         class="flex items-center gap-4 px-4 lg:col-span-3 lg:px-0 lg:justify-self-end">
                         <a href="#"
-                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition">ثبت
+                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition dark:text-indigo-400 dark:border-indigo-400 dark:hover:bg-indigo-400">ثبت
                             نام</a>
                         <!-- save start -->
                         <button
-                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative">
+                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative dark:bg-indigo-400 dark:text-white">
                             <div
-                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible">ذخیره</div>
+                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible dark:bg-indigo-400">ذخیره</div>
+                            <div
+                                class="flex justify-center items-center absolute">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                                </svg>
+                            </div>
+                        </button>
+                        <!-- save end -->
+                    </div>
+                    <!-- button end -->
+
+                </div>
+
+                <div
+                    class="bg-white relative border-style grid grid-cols-1 lg:grid-cols-12 border px-4 py-4 pb-6 rounded-lg mb-4 dark:bg-dark-600">
+                    <!-- profile start -->
+                    <div
+                        class="flex flex-col gap-4 items-center lg:col-span-3 lg:flex-row lg:justify-around">
+                        <div class="relative">
+                            <img src="../img/2Best.JPG" alt="avatar"
+                                class="w-12 h-12 rounded-full">
+                            <div
+                                class="absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 animate-pulse border-white bg-green-500"></div>
+                        </div>
+                        <div class="text-center">
+                            <h3
+                                class="text-sm font-medium title_color mb-2">نیما</h3>
+                            <h4 class="text-xs font-medium title_color">همه
+                                روزه</h4>
+                        </div>
+                    </div>
+                    <!-- profile end -->
+                    <!-- info start -->
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 mt-10 lg:col-span-2 lg:mb-0 lg:mt-0">
+                        <h3 class="font-medium lg:hidden">مقصد</h3>
+                        <h4 class="font-normal">فرانسه</h4>
+                    </div>
+
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
+                        <h3 class="font-medium lg:hidden">هتل</h3>
+                        <h4 class="font-normal">فروانسوی</h4>
+                    </div>
+
+                    <div
+                        class="flex items-center text-sm justify-between lg:justify-center title_color mb-4 lg:col-span-2 lg:mb-0">
+                        <h3 class="font-medium lg:hidden">مترجم</h3>
+                        <h4
+                            class="font-normal bg-green-200 rounded-2xl text-normal px-4 py-2 dark:text-gray-600">دارد</h4>
+                    </div>
+                    <!-- info end -->
+
+                    <!-- button start -->
+                    <div
+                        class="flex items-center gap-4 px-4 lg:col-span-3 lg:px-0 lg:justify-self-end">
+                        <a href="#"
+                            class="w-full lg:w-auto lg:px-14 h-10 flex-center text-purple-700 border border-purple-700 rounded-lg hover:bg-purple-700 hover:text-white custom-transition dark:text-indigo-400 dark:border-indigo-400 dark:hover:bg-indigo-400">ثبت
+                            نام</a>
+                        <!-- save start -->
+                        <button
+                            class="absolute top-4 group right-4 w-10 h-10 rounded-full bg-gray-200 flex-center lg:top-0 lg:right-0 lg:relative dark:bg-indigo-400 dark:text-white">
+                            <div
+                                class="relative hidden lg:block -top-8 left-4 bg-purple-700 text-white text-xs font-normal px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 custom-transition invisible group-hover:visible dark:bg-indigo-400">ذخیره</div>
                             <div
                                 class="flex justify-center items-center absolute">
                                 <svg xmlns="http://www.w3.org/2000/svg"

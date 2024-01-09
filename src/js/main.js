@@ -92,9 +92,28 @@ function handleDirection() {
   }
 }
 
+function darkMode() {
+  return {
+    makeDark() {
+      localStorage.setItem('theme', 'dark');
+      document.querySelector('.handle-darkmode').classList.add('darkmode');
+      document.documentElement.classList.add('dark');
+    },
+    makeLight() {
+      localStorage.setItem('theme', 'light');
+      document.querySelector('.handle-darkmode').classList.remove('darkmode');
+      document.documentElement.classList.remove('dark');
+    }
+  }
+}
+
 window.onload = () => {
   document.documentElement.dir = localStorage.getItem('dir');
   if (localStorage.getItem('dir') == 'rtl') {
     document.querySelector('.handle-direction').classList.add('rtl');
+  }
+  if (localStorage.getItem('theme') === 'dark') {
+    document.querySelector('.handle-darkmode').classList.add('darkmode');
+    document.documentElement.classList.add('dark');
   }
 }

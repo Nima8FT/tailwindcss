@@ -1,1 +1,6 @@
 npx tailwindcss -i ./src/css/app.css -o ./src/css/output.css --watch
+
+      dark: {
+        800: '#232326',
+        600: '#3b3b41',
+      }
