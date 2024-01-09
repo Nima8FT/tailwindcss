@@ -1,0 +1,2 @@
+npx tailwindcss -i ./src/css/app.css -o ./src/css/output.css --watch
+npx tailwindcss -i ./src/css/app.css -o ./src/css/output.css --minify
